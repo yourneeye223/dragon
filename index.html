@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AR Example</title>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.rawgit.com/jeromeetienne/ar.js/1.7.2/aframe/build/aframe-ar.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/n5ro/aframe-extras@6.1.1/dist/aframe-extras.min.js"></script>
+    <style> body { margin: 0; overflow: hidden; } </style>
+  </head>
+  <body>
+    <a-scene embedded arjs>
+      <!-- Marker HIRO -->
+      <a-marker type="pattern" url="marker/marker.patt">
+        <!-- Model 1 -->
+        <a-entity 
+          gltf-model="url(model/black_dragon.glb)"
+          scale="0.02 0.02 0.02"
+          position="0 0 0.7"
+          animation-mixer="clip: Qishilong_attack01; loop: repeat;">
+        </a-entity>
+
+        <!-- Model 2 -->
+        <a-entity 
+          gltf-model="url(model/black_dragon.glb)"
+          scale="0.02 0.02 0.02"
+          position="0 0.5 0"
+          animation-mixer="clip: Qishilong_CG3_SC01_C03_DH; loop: repeat;">
+        </a-entity>
+
+        <!-- Model 3 -->
+        <a-entity 
+          gltf-model="url(model/black_dragon.glb)"
+          scale="0.02 0.02 0.02"
+          position="0 0 -0.7"
+          animation-mixer="clip: Qishilong_fly2; loop: repeat;">
+        </a-entity>
+      </a-marker>
+
+      <!-- Kamera dan Suara -->
+      <a-entity camera></a-entity>
+      <a-sound src="url(sounds/black_dragon.mp3)" autoplay="true" loop="true"></a-sound>
+    </a-scene>
+  </body>
+</html>
